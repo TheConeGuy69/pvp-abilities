@@ -1,0 +1,5 @@
+terraSlam:
+  damage: 6
+  cooldown: 10 # seconds
+  duration: 0.3 # seconds
+  radius: 4 # blocks
