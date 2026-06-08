@@ -23,8 +23,20 @@ abilities:
     duration: 0 # seconds
     radius: 3 # blocks
 
-  AeroCrush:
-    damage: 5
-    cooldown: 13 # seconds
+  aeroCrush:
+    damage: 8
+    cooldown: 17 # seconds
     duration: 0 # seconds
-    radius: 3 # blocks
+    radius: 4 # blocks
+
+  nightFall:
+    damage: 3
+    cooldown: 12 # seconds
+    duration: 3 # seconds
+    radius: 5 # blocks
+
+  horrorMark:
+    damage: 3
+    cooldown: 12 # seconds
+    duration: 3 # seconds
+    radius: 4 # blocks

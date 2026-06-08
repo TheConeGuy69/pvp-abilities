@@ -31,7 +31,7 @@ public class AeroCrush {
         if (cooldowns.containsKey(player.getUniqueId())
                 && cooldowns.get(player.getUniqueId()) > now) {
 
-            player.sendMessage("Terra Slam is on cooldown!");
+            player.sendMessage("Aero Crush is on cooldown!");
             return;
         }
 
@@ -46,10 +46,9 @@ public class AeroCrush {
             double z = Math.sin(angle) * radius;
 
             centre.getWorld().spawnParticle(
-                    Particle.BLOCK_CRUMBLE,
+                    Particle.EXPLOSION,
                     centre.clone().add(x, 0, z),
-                    10,
-                    Material.DIRT.createBlockData()
+                    10
             );
         }
 

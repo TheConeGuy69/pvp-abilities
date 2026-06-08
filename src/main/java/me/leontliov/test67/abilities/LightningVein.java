@@ -30,7 +30,7 @@ public class LightningVein {
         if (cooldowns.containsKey(player.getUniqueId())
                 && cooldowns.get(player.getUniqueId()) > now) {
 
-            player.sendMessage("Terra Slam is on cooldown!");
+            player.sendMessage("Lightning Vein is on cooldown!");
             return;
         }
 
