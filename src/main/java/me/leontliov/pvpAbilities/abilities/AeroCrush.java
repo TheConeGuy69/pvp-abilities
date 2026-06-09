@@ -1,4 +1,4 @@
-package me.leontliov.test67.abilities;
+package me.leontliov.pvpAbilities.abilities;
 
 import org.bukkit.Location;
 import org.bukkit.Particle;
@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class InfernoBurst {
+public class AeroCrush {
     private final Map<UUID, Long> cooldowns = new HashMap<>();
 
     private final double damage;
@@ -17,11 +17,11 @@ public class InfernoBurst {
     private final double duration;
     private final int radius;
 
-    public InfernoBurst(JavaPlugin plugin) {
-        damage = plugin.getConfig().getInt("abilities.infernoBlast.damage");
-        cooldown = plugin.getConfig().getInt("abilities.infernoBlast.cooldown");
-        duration = plugin.getConfig().getInt("abilities.infernoBlast.duration");
-        radius = plugin.getConfig().getInt("abilities.infernoBlast.radius");
+    public AeroCrush(JavaPlugin plugin) {
+        damage = plugin.getConfig().getInt("abilities.terraSlam.damage");
+        cooldown = plugin.getConfig().getInt("abilities.terraSlam.cooldown");
+        duration = plugin.getConfig().getInt("abilities.terraSlam.duration");
+        radius = plugin.getConfig().getInt("abilities.terraSlam.radius");
     }
 
     public void use(Player player) {
@@ -30,7 +30,7 @@ public class InfernoBurst {
         if (cooldowns.containsKey(player.getUniqueId())
                 && cooldowns.get(player.getUniqueId()) > now) {
 
-            player.sendMessage("Inferno Burst is on cooldown!");
+            player.sendMessage("Aero Crush is on cooldown!");
             return;
         }
 
@@ -38,7 +38,6 @@ public class InfernoBurst {
 
         for (Player nearby : centre.getNearbyPlayers(radius)) {
             nearby.damage(damage, player);
-            nearby.setFireTicks((int) (20 * duration));
         }
 
         for (double angle = 0; angle < Math.PI * 2; angle += 0.2) {
@@ -46,7 +45,7 @@ public class InfernoBurst {
             double z = Math.sin(angle) * radius;
 
             centre.getWorld().spawnParticle(
-                    Particle.LAVA,
+                    Particle.EXPLOSION,
                     centre.clone().add(x, 0, z),
                     10
             );

@@ -1,7 +1,6 @@
-package me.leontliov.test67.abilities;
+package me.leontliov.pvpAbilities.abilities;
 
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -10,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class AeroCrush {
+public class FrostWave {
     private final Map<UUID, Long> cooldowns = new HashMap<>();
 
     private final double damage;
@@ -18,11 +17,11 @@ public class AeroCrush {
     private final double duration;
     private final int radius;
 
-    public AeroCrush(JavaPlugin plugin) {
-        damage = plugin.getConfig().getInt("abilities.terraSlam.damage");
-        cooldown = plugin.getConfig().getInt("abilities.terraSlam.cooldown");
-        duration = plugin.getConfig().getInt("abilities.terraSlam.duration");
-        radius = plugin.getConfig().getInt("abilities.terraSlam.radius");
+    public FrostWave(JavaPlugin plugin) {
+        damage = plugin.getConfig().getInt("abilities.frostwave.damage");
+        cooldown = plugin.getConfig().getInt("abilities.frostwave.cooldown");
+        duration = plugin.getConfig().getInt("abilities.frostwave.duration");
+        radius = plugin.getConfig().getInt("abilities.frostwave.radius");
     }
 
     public void use(Player player) {
@@ -31,7 +30,7 @@ public class AeroCrush {
         if (cooldowns.containsKey(player.getUniqueId())
                 && cooldowns.get(player.getUniqueId()) > now) {
 
-            player.sendMessage("Aero Crush is on cooldown!");
+            player.sendMessage("Frost Wave is on cooldown!");
             return;
         }
 
@@ -39,6 +38,8 @@ public class AeroCrush {
 
         for (Player nearby : centre.getNearbyPlayers(radius)) {
             nearby.damage(damage, player);
+            nearby.setFreezeTicks((int) (20 * duration));
+            nearby.setWalkSpeed(0.1f);
         }
 
         for (double angle = 0; angle < Math.PI * 2; angle += 0.2) {
@@ -46,7 +47,7 @@ public class AeroCrush {
             double z = Math.sin(angle) * radius;
 
             centre.getWorld().spawnParticle(
-                    Particle.EXPLOSION,
+                    Particle.SNOWFLAKE,
                     centre.clone().add(x, 0, z),
                     10
             );

@@ -1,4 +1,4 @@
-package me.leontliov.test67.abilities;
+package me.leontliov.pvpAbilities.abilities;
 
 import org.bukkit.Location;
 import org.bukkit.Particle;

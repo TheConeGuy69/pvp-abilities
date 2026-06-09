@@ -1,17 +1,14 @@
-package me.leontliov.test67;
+package me.leontliov.pvpAbilities;
 
-import me.leontliov.test67.abilities.*;
-import net.kyori.adventure.text.event.HoverEvent;
+import me.leontliov.pvpAbilities.abilities.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import me.leontliov.test67.abilities.*;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 
 public class ability implements CommandExecutor, TabCompleter {

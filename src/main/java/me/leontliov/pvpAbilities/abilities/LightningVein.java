@@ -1,6 +1,5 @@
-package me.leontliov.test67.abilities;
+package me.leontliov.pvpAbilities.abilities;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
@@ -10,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class HorrorMark {
+public class LightningVein {
     private final Map<UUID, Long> cooldowns = new HashMap<>();
 
     private final double damage;
@@ -18,14 +17,11 @@ public class HorrorMark {
     private final double duration;
     private final int radius;
 
-    private final JavaPlugin plugin;
-
-    public HorrorMark(JavaPlugin plugin) {
-        damage = plugin.getConfig().getInt("abilities.horrorMark.damage");
-        cooldown = plugin.getConfig().getInt("abilities.horrorMark.cooldown");
-        duration = plugin.getConfig().getInt("abilities.horrorMark.duration");
-        radius = plugin.getConfig().getInt("abilities.horrorMark.radius");
-        this.plugin = plugin;
+    public LightningVein(JavaPlugin plugin) {
+        damage = plugin.getConfig().getInt("abilities.lightningVein.damage");
+        cooldown = plugin.getConfig().getInt("abilities.lightningVein.cooldown");
+        duration = plugin.getConfig().getInt("abilities.lightningVein.duration");
+        radius = plugin.getConfig().getInt("abilities.lightningVein.radius");
     }
 
     public void use(Player player) {
@@ -34,7 +30,7 @@ public class HorrorMark {
         if (cooldowns.containsKey(player.getUniqueId())
                 && cooldowns.get(player.getUniqueId()) > now) {
 
-            player.sendMessage("Horror Mark is on cooldown!");
+            player.sendMessage("Lightning Vein is on cooldown!");
             return;
         }
 
@@ -42,23 +38,16 @@ public class HorrorMark {
 
         for (Player nearby : centre.getNearbyPlayers(radius)) {
             nearby.damage(damage, player);
-            nearby.setWalkSpeed(0.1f);
-
-            Bukkit.getScheduler().runTaskLater(plugin, () -> {
-                nearby.setWalkSpeed(0.2f); // default player speed
-            }, (int) (20L * duration));
         }
-
-
 
         for (double angle = 0; angle < Math.PI * 2; angle += 0.2) {
             double x = Math.cos(angle) * radius;
             double z = Math.sin(angle) * radius;
 
             centre.getWorld().spawnParticle(
-                    Particle.SOUL,
+                    Particle.ELECTRIC_SPARK,
                     centre.clone().add(x, 0, z),
-                    10
+                    1
             );
         }
 

@@ -1,6 +1,6 @@
-package me.leontliov.test67;
+package me.leontliov.pvpAbilities;
 
-import me.leontliov.test67.abilities.*;
+import me.leontliov.pvpAbilities.abilities.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Test67 extends JavaPlugin {

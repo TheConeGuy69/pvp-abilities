@@ -1,4 +1,4 @@
-package me.leontliov.test67.abilities;
+package me.leontliov.pvpAbilities.abilities;
 
 import org.bukkit.Location;
 import org.bukkit.Particle;
@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class LightningVein {
+public class InfernoBurst {
     private final Map<UUID, Long> cooldowns = new HashMap<>();
 
     private final double damage;
@@ -17,11 +17,11 @@ public class LightningVein {
     private final double duration;
     private final int radius;
 
-    public LightningVein(JavaPlugin plugin) {
-        damage = plugin.getConfig().getInt("abilities.lightningVein.damage");
-        cooldown = plugin.getConfig().getInt("abilities.lightningVein.cooldown");
-        duration = plugin.getConfig().getInt("abilities.lightningVein.duration");
-        radius = plugin.getConfig().getInt("abilities.lightningVein.radius");
+    public InfernoBurst(JavaPlugin plugin) {
+        damage = plugin.getConfig().getInt("abilities.infernoBlast.damage");
+        cooldown = plugin.getConfig().getInt("abilities.infernoBlast.cooldown");
+        duration = plugin.getConfig().getInt("abilities.infernoBlast.duration");
+        radius = plugin.getConfig().getInt("abilities.infernoBlast.radius");
     }
 
     public void use(Player player) {
@@ -30,7 +30,7 @@ public class LightningVein {
         if (cooldowns.containsKey(player.getUniqueId())
                 && cooldowns.get(player.getUniqueId()) > now) {
 
-            player.sendMessage("Lightning Vein is on cooldown!");
+            player.sendMessage("Inferno Burst is on cooldown!");
             return;
         }
 
@@ -38,6 +38,7 @@ public class LightningVein {
 
         for (Player nearby : centre.getNearbyPlayers(radius)) {
             nearby.damage(damage, player);
+            nearby.setFireTicks((int) (20 * duration));
         }
 
         for (double angle = 0; angle < Math.PI * 2; angle += 0.2) {
@@ -45,9 +46,9 @@ public class LightningVein {
             double z = Math.sin(angle) * radius;
 
             centre.getWorld().spawnParticle(
-                    Particle.ELECTRIC_SPARK,
+                    Particle.LAVA,
                     centre.clone().add(x, 0, z),
-                    1
+                    10
             );
         }
 

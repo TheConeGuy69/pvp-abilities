@@ -1,4 +1,4 @@
-package me.leontliov.test67.abilities;
+package me.leontliov.pvpAbilities.abilities;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -45,8 +45,6 @@ public class CrystalSpikes {
             player.sendMessage("Crystal Spikes is on cooldown!");
             return;
         }
-
-
 
         for (int i = 0; i < 3; i++) {
             Location start = player.getEyeLocation();
