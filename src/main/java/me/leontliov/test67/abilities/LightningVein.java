@@ -45,9 +45,9 @@ public class LightningVein {
             double z = Math.sin(angle) * radius;
 
             centre.getWorld().spawnParticle(
-                    Particle.ANGRY_VILLAGER,
+                    Particle.ELECTRIC_SPARK,
                     centre.clone().add(x, 0, z),
-                    10
+                    1
             );
         }
 

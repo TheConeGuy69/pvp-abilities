@@ -67,7 +67,7 @@ public class NightFall {
             double z = Math.sin(angle) * radius;
 
             centre.getWorld().spawnParticle(
-                    Particle.SNOWFLAKE,
+                    Particle.ENCHANTED_HIT,
                     centre.clone().add(x, 0, z),
                     10
             );

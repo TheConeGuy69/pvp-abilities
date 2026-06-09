@@ -1,4 +1,6 @@
 abilities:
+  # v ---------- Ground Attacks ------------ v
+
   terraSlam:
     damage: 6
     cooldown: 10 # seconds
@@ -40,3 +42,15 @@ abilities:
     cooldown: 12 # seconds
     duration: 3 # seconds
     radius: 4 # blocks
+
+  # -------------------------------
+
+  # v ---------- Throwable Attacks ------------ v
+
+  crystalSpikes:
+    damage: 5
+    cooldown: 12 # seconds
+    duration: 0.5 # seconds
+    radius: 3 # blocks <- idk what this is for @present
+    speed: 1 # blocks per second
+    range: 15 #blocks

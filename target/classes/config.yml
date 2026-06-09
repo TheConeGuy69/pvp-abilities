@@ -1,5 +1,56 @@
-terraSlam:
-  damage: 6
-  cooldown: 10 # seconds
-  duration: 0.3 # seconds
-  radius: 4 # blocks
+abilities:
+  # v ---------- Ground Attacks ------------ v
+
+  terraSlam:
+    damage: 6
+    cooldown: 10 # seconds
+    duration: 0.3 # seconds
+    radius: 4 # blocks
+
+  infernoBurst:
+    damage: 9
+    cooldown: 18 # seconds
+    duration: 1 # seconds
+    radius: 4 # blocks
+
+  frostWave:
+    damage: 4
+    cooldown: 13 # seconds
+    duration: 2 # seconds
+    radius: 5 # blocks
+
+  lightningVein:
+    damage: 5
+    cooldown: 13 # seconds
+    duration: 0 # seconds
+    radius: 3 # blocks
+
+  aeroCrush:
+    damage: 8
+    cooldown: 17 # seconds
+    duration: 0 # seconds
+    radius: 4 # blocks
+
+  nightFall:
+    damage: 3
+    cooldown: 12 # seconds
+    duration: 3 # seconds
+    radius: 5 # blocks
+
+  horrorMark:
+    damage: 3
+    cooldown: 12 # seconds
+    duration: 3 # seconds
+    radius: 4 # blocks
+
+  # -------------------------------
+
+  # v ---------- Throwable Attacks ------------ v
+
+  crystalSpikes:
+    damage: 5
+    cooldown: 12 # seconds
+    duration: 0.5 # seconds
+    radius: 3 # blocks <- idk what this is for @present
+    speed: 1 # blocks per second
+    range: 15 #blocks
