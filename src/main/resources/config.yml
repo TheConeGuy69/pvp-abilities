@@ -54,3 +54,35 @@ abilities:
     radius: 3 # blocks <- idk what this is for @present
     speed: 1 # blocks per second
     range: 15 #blocks
+
+  pyroLash:
+    damage: 6
+    cooldown: 11 # seconds
+    duration: 0.3 # seconds
+    radius: 3 # blocks <- idk what this is for @present
+    speed: 2 # blocks per second
+    range: 18 #blocks
+
+  glacialPierce:
+    damage: 7
+    cooldown: 14 # seconds
+    duration: 0 # seconds
+    radius: 2 # blocks <- idk what this is for @present
+    speed: 3 # blocks per second
+    range: 20 #blocks
+
+  voidSlash:
+    damage: 7
+    cooldown: 14 # seconds
+    duration: 1 # seconds
+    radius: 3 # blocks <- idk what this is for @present
+    speed: 3 # blocks per second
+    range: 20 #blocks
+
+  soulSwap:
+    damage: 0
+    cooldown: 24 # seconds
+    duration: 0.2 # seconds
+    radius: 5 # blocks <- idk what this is for @present
+    speed: 1 # blocks per second
+    range: 15 #blocks

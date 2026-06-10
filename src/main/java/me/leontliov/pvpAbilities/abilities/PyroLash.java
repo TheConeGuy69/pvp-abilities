@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class CrystalSpikes {
+public class PyroLash {
     private final Map<UUID, Long> cooldowns = new HashMap<>();
 
     private final double damage;
@@ -26,13 +26,13 @@ public class CrystalSpikes {
 
     private final JavaPlugin plugin;
 
-    public CrystalSpikes(JavaPlugin plugin) {
-        damage = plugin.getConfig().getDouble("abilities.crystalSpikes.damage");
-        cooldown = plugin.getConfig().getInt("abilities.crystalSpikes.cooldown");
-        duration = plugin.getConfig().getDouble("abilities.crystalSpikes.duration");
-        radius = plugin.getConfig().getInt("abilities.crystalSpikes.radius");
-        speed = plugin.getConfig().getDouble("abilities.crystalSpikes.speed");
-        range = plugin.getConfig().getDouble("abilities.crystalSpikes.range");
+    public PyroLash(JavaPlugin plugin) {
+        damage = plugin.getConfig().getDouble("abilities.pyroLash.damage");
+        cooldown = plugin.getConfig().getInt("abilities.pyroLash.cooldown");
+        duration = plugin.getConfig().getDouble("abilities.pyroLash.duration");
+        radius = plugin.getConfig().getInt("abilities.pyroLash.radius");
+        speed = plugin.getConfig().getDouble("abilities.pyroLash.speed");
+        range = plugin.getConfig().getDouble("abilities.pyroLash.range");
         this.plugin = plugin;
     }
 
@@ -42,7 +42,7 @@ public class CrystalSpikes {
         if (cooldowns.containsKey(player.getUniqueId())
                 && cooldowns.get(player.getUniqueId()) > now) {
 
-            player.sendMessage("Crystal Spikes is on cooldown!");
+            player.sendMessage("Pyro Lash is on cooldown!");
             return;
         }
             Location start = player.getEyeLocation();
@@ -61,8 +61,7 @@ public class CrystalSpikes {
                     Location loc = start.clone()
                             .add(direction.clone().multiply(travelled));
 
-                    world.spawnParticle(Particle.SNOWFLAKE, loc, 3);
-                    world.spawnParticle(Particle.ENCHANTED_HIT, loc, 3);
+                    world.spawnParticle(Particle.LAVA, loc, 3);
 
                     for (Entity entity : world.getNearbyEntities(loc, 0.5, 0.5, 0.5)) {
 
@@ -79,7 +78,7 @@ public class CrystalSpikes {
                                 .toVector()
                                 .subtract(loc.toVector())
                                 .normalize()
-                                .multiply(-3);
+                                .multiply(3);
 
                         target.damage(damage, player);
                         target.setVelocity(knockback);

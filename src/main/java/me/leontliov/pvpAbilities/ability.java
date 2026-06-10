@@ -21,6 +21,10 @@ public class ability implements CommandExecutor, TabCompleter {
     private final AeroCrush aeroCrush;
     private final HorrorMark horrorMark;
     private final CrystalSpikes crystalSpikes;
+    private final PyroLash pyroLash;
+    private final GlacialPierce glacialPierce;
+    private final VoidSlash voidSlash;
+    private final SoulSwap soulSwap;
 
     public ability(Test67 plugin) {
         this.terraSlam = new TerraSlam(plugin);
@@ -31,6 +35,10 @@ public class ability implements CommandExecutor, TabCompleter {
         this.aeroCrush = new AeroCrush(plugin);
         this.horrorMark = new HorrorMark(plugin);
         this.crystalSpikes = new CrystalSpikes(plugin);
+        this.pyroLash = new PyroLash(plugin);
+        this.glacialPierce = new GlacialPierce(plugin);
+        this.voidSlash = new VoidSlash(plugin);
+        this.soulSwap = new SoulSwap(plugin);
     }
 
     @Override
@@ -62,8 +70,16 @@ public class ability implements CommandExecutor, TabCompleter {
                 aeroCrush.use(player);
             } else if (abilityArg.equalsIgnoreCase("horrormark")) {
                 horrorMark.use(player);
-            } else if (abilityArg.equalsIgnoreCase("crystalSpikes")) {
+            } else if (abilityArg.equalsIgnoreCase("crystalspikes")) {
                 crystalSpikes.use(player);
+            } else if (abilityArg.equalsIgnoreCase("pyrolash")) {
+                pyroLash.use(player);
+            } else if (abilityArg.equalsIgnoreCase("glacialpierce")) {
+                glacialPierce.use(player);
+            } else if (abilityArg.equalsIgnoreCase("voidslash")) {
+                voidSlash.use(player);
+            } else if (abilityArg.equalsIgnoreCase("soulswap")) {
+                soulSwap.use(player);
             } else {
                 player.sendMessage("not a real shape");
             }

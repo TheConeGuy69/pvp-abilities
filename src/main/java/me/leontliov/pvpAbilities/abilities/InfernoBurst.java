@@ -48,7 +48,7 @@ public class InfernoBurst {
             centre.getWorld().spawnParticle(
                     Particle.LAVA,
                     centre.clone().add(x, 0, z),
-                    10
+                    1
             );
         }
 
